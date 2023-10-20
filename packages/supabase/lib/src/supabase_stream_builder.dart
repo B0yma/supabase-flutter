@@ -306,6 +306,7 @@ class SupabaseStreamBuilder extends Stream<SupabaseStreamEvent> {
           filter: realtimeFilter,
         ), (payload, [ref]) {
       final newRecord = Map<String, dynamic>.from(payload['new']!);
+      _streamData.clear();
       _streamData.add(newRecord);
       _addStream();
     }).on(
